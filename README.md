@@ -11,6 +11,7 @@
 ├── Vagrantfile
 ├── postgresql.conf
 ├── pg_hba.conf
+├── README.md
 └── ansible
     ├── hosts
     ├── install_barman
