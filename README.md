@@ -40,7 +40,7 @@
 ## Выполнение
 
 ### Настройка hot_standby репликации
-## На хосте node1:
+На хосте node1:
 ```
 [root@otus-homework postgres]# vagrant ssh node1
 vagrant@node1:~$ sudo -i
@@ -178,7 +178,7 @@ postgres=# select * from pg_stat_replication;
 (1 row)
 ```
 
-## На хосте node2:
+На хосте node2:
 ```
 [root@otus-homework postgres]# vagrant ssh node2
 vagrant@node2:~$ sudo -i
@@ -415,7 +415,7 @@ postgres=# select * from pg_stat_wal_receiver;
 
 ### Настройка резервного копирования
 
-## На хосте node1
+На хосте node1
 ```
 root@node1:~# apt install barman-cli -y
 
@@ -542,7 +542,7 @@ postgres=#
 
 
 
-## На хосте barman
+На хосте barman
 ```
 vagrant@barman:~$ sudo -i
 
@@ -731,7 +731,7 @@ barman@barman:~$
 
 
 ### Проверка восстановления из бекапов
-## Дропаем БД в node1
+Дропаем БД в node1
 ```
 root@node1:~# sudo -u postgres psql
 psql (16.15 (Ubuntu 16.15-0ubuntu0.24.04.1))
@@ -768,7 +768,7 @@ postgres=# \l
 (3 rows)
 ```
 
-## Запускаем восстановление в barman
+Запускаем восстановление в barman
 ```
 barman@barman:~$ barman recover node1 20261029T095609 /var/lib/postgresql/16/main/ --remote-ssh-comman "ssh postgres@192.168.57.11"
 Starting remote restore for server node1 using backup 20261029T095609
@@ -794,7 +794,7 @@ barman@barman:~$
 
 
 
-## Делаем рестарт сервиса и проверяем восстановление
+Делаем рестарт сервиса и проверяем восстановление
 
 ```
 root@node1:~#  systemctl restart postgresql@16-main
